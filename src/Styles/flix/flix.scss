@@ -1,0 +1,155 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+//FLIX page
+
+//video gradient
+.loginpage-video-gradient {
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 83.8%, rgba(0, 0, 0, 0.15) 100%);
+}
+
+//photo gradient
+.login-page-photo-gradient {
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 75%, rgba(0, 0, 0, 0.2) 100%);
+}
+
+//section
+
+.section-gradient {
+    background: linear-gradient(180deg, rgba(26, 25, 23, 0) 0%, rgba(26, 25, 23, 0.5) 60.99%);
+}
+
+//footer
+
+// Footer Background
+.footer-gradient-dark {
+    background: #1a1917cf;
+    box-shadow: 0px 1px 2px 0px #0000000F;
+    box-shadow: 0px 1px 3px 0px #0000001A;
+}
+
+.footer-border-dark {
+    border: 0.5px solid rgba(255, 255, 255, 0.3);
+}
+
+
+.footer-gradient-light {
+    background: #FDFBF8;
+}
+
+.footer-border-light {
+    border: 0.5px solid #3D3E40;
+}
+
+
+
+/* Hide scrollbar for all elements */
+::-webkit-scrollbar {
+    display: none;
+    /* Chrome, Safari, Edge, and others */
+}
+
+
+//Components styling
+
+//navbar
+.navbar-gradient {
+    background: linear-gradient(180deg, rgba(26, 25, 23, 0.5) 0%, rgba(26, 25, 23, 0) 99.5%);
+}
+
+
+//FlixSection Component
+.flix-home-back-button {
+    background: #FFFFFF;
+}
+
+//FlixReelContent Component
+.sound-button-gradient {
+    backdrop-filter: blur(12px);
+    border-radius: 2px;
+}
+
+//footer gradient component
+.footer-component-gradient {
+    background: linear-gradient(180deg, rgba(253, 251, 248, 0) 0%, #FDFBF8 100%);
+}
+
+//scroll up animation for flix home page
+
+/* Scroll up animation */
+@keyframes scrollUp {
+    0% {
+      transform: translateY(0); /* start at normal position */
+    }
+    50% {
+      transform: translateY(-70px); /* slightly scroll up */
+    }
+    100% {
+      transform: translateY(0); /* return to normal position */
+    }
+  }
+  
+  /* Apply the animation */
+  .scroll-up-animation {
+    animation: scrollUp 1000ms ease-in-out;
+  }
+  
+
+// //payppy-2.0 video design like YouTube shorts
+// .flix-main-video {
+//     // width: 56.25vh; 
+//     // width: 55.09vh; //accurate values
+//     width: 52.7vh;
+//     // background: linear-gradient(180deg, rgba(26, 25, 23, 0) 0%, rgba(26, 25, 23, 0.5) 60.99%);
+// }
+
+
+
+//navbar collection text dynamic classes
+// .defaultText {
+//     font-weight: 500;
+//     font-size: 12px;
+//     line-height: 16px;
+//     letter-spacing: 0.8px;
+//     color: #FFFFFF;
+//     text-transform: uppercase;
+//     opacity: 0.8;
+// }
+
+// .clickedText {
+//     font-weight: 600;
+//     font-size: 12px;
+//     line-height: 16px;
+//     letter-spacing: 0.8px;
+//     color: #FFFFFF;
+//     text-transform: uppercase;
+//     opacity: 1;
+
+//     position: relative;
+//     display: flex;
+//     flex-direction: row;
+//     gap: 4px;
+// }
+
+// .clickedText::after {
+//     gap: 4px;
+//     display: flex;
+//     flex-direction: row;
+//     content: "";
+//     position: absolute;
+//     bottom: 0px;
+//     /* Position the underline below the text */
+//     left: 50%;
+//     /* Start the underline from the center */
+//     width: 50%;
+//     /* Set the width to 100% or a custom value */
+//     height: 1px;
+//     /* Thickness of the underline */
+//     background-color: #FFFFFF;
+//     /* Color of the underline */
+//     transform: translateX(-50%) translateY(7px);
+//     /* Center the underline horizontally and adjust vertical position */
+// }

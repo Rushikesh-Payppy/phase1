@@ -1,0 +1,76 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.loginpage-video-gradient {
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 83.8%, rgba(0, 0, 0, 0.15) 100%);
+}
+
+.login-page-photo-gradient {
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 75%, rgba(0, 0, 0, 0.2) 100%);
+}
+
+.section-gradient {
+  background: linear-gradient(180deg, rgba(26, 25, 23, 0) 0%, rgba(26, 25, 23, 0.5) 60.99%);
+}
+
+.footer-gradient-dark {
+  background: rgba(26, 25, 23, 0.8117647059);
+  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.0588235294);
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.1019607843);
+}
+
+.footer-border-dark {
+  border: 0.5px solid rgba(255, 255, 255, 0.3);
+}
+
+.footer-gradient-light {
+  background: #FDFBF8;
+}
+
+.footer-border-light {
+  border: 0.5px solid #3D3E40;
+}
+
+/* Hide scrollbar for all elements */
+::-webkit-scrollbar {
+  display: none;
+  /* Chrome, Safari, Edge, and others */
+}
+
+.navbar-gradient {
+  background: linear-gradient(180deg, rgba(26, 25, 23, 0.5) 0%, rgba(26, 25, 23, 0) 99.5%);
+}
+
+.flix-home-back-button {
+  background: #FFFFFF;
+}
+
+.sound-button-gradient {
+  -webkit-backdrop-filter: blur(12px);
+          backdrop-filter: blur(12px);
+  border-radius: 2px;
+}
+
+.footer-component-gradient {
+  background: linear-gradient(180deg, rgba(253, 251, 248, 0) 0%, #FDFBF8 100%);
+}
+
+/* Scroll up animation */
+@keyframes scrollUp {
+  0% {
+    transform: translateY(0); /* start at normal position */
+  }
+  50% {
+    transform: translateY(-70px); /* slightly scroll up */
+  }
+  100% {
+    transform: translateY(0); /* return to normal position */
+  }
+}
+/* Apply the animation */
+.scroll-up-animation {
+  animation: scrollUp 1000ms ease-in-out;
+}/*# sourceMappingURL=flix.css.map */

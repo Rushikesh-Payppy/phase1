@@ -1,0 +1,33 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Dependency directories
+node_modules/
+
+# Build output
+.next/
+out/
+
+# Production build
+build/
+
+# Optional npm cache directory
+.npm/
+
+# Debug logs output by npm
+npm-debug.log*
+
+# Environment files
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+
+# System files
+.DS_Store
+Thumbs.db
