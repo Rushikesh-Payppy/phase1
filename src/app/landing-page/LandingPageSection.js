@@ -140,6 +140,8 @@ function LandingPageSection()
 
 
                     <div className=" h-[60%] px-10 pt-20 pb-12 flex flex-col justify-between items-center gap-10 relative overflow-hidden ">
+                    <Image src={Logout} width={32} height={32} alt="" quality={100} className=" absolute z-[1] top-6 right-6 cursor-pointer" onClick={handleLogOut} />
+
                         <Image src={Hero} width={390} height={516} alt="" quality={100} className="w-full h-full object-cover absolute z-0 top-0 left-0" />
                         <div className="bg-landingpage-gradient absolute top-0 left-0 h-full w-full "></div>
                         <Image src={Logo} width={32} height={32} alt="img" quality={100} className="z-[1]" />

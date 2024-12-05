@@ -1,4 +1,6 @@
 'use client';
+export const dynamic='force-dynamic';
+
 import Image from "next/image";
 //header images
 import Pepcoin from '@/Images/Homepage/pepcoin-icon.svg';
@@ -41,7 +43,6 @@ import IntialLoadingAnimation from "@/Components/InitialPageLoadingAnimation";
 import GetCartInfoApi from "@/apis/store/GetCartInfoApi";
 import AddToCartApi from "@/apis/auth/AddToCartApi";
 
-export const dynamic='auto';
 
 const plus_jakarta_sans=Plus_Jakarta_Sans({
     subsets:['latin'],
@@ -76,7 +77,7 @@ function ProductSection()
     let router=useRouter();
 
     useEffect(()=>{
-        let productid=params.get('product');
+        let productid=params?.get('product');
         if(productid)
         {   
             setProductId(productid);

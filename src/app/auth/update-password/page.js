@@ -1,12 +1,14 @@
+
 import UpdatePasswordSection from "./UpdatePasswordSection";
-
-
+import { Suspense } from "react";
 
 function Page() {
     
     return(
         <>
-          <UpdatePasswordSection/>
+        <Suspense>
+            <UpdatePasswordSection/>
+        </Suspense>
         </>
     )
 }

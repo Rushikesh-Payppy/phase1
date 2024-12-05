@@ -1,10 +1,10 @@
 'use client';
+//this below line will prevent to generate static page
+export const dynamic='force-dynamic';
 import { Plus_Jakarta_Sans } from 'next/font/google';
 import Image from 'next/image';
 import Link from 'next/link';
 
-//this below line will prevent to generate static page
-export const dynamic='auto';
 
 import Arrow from '@/Images/Otp/arrow-icon.svg';
 import { useEffect, useRef, useState } from 'react';
@@ -47,7 +47,7 @@ function UpdatePasswordSection()
     },[password])
 
     useEffect(()=>{
-        let urlToken=params.get('token');
+        let urlToken=params?.get('token');
         setToken(urlToken);
     },[params])
 

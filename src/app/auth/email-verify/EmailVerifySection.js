@@ -1,11 +1,11 @@
 'use client';
+export const dynamic = 'force-dynamic'; // Ensure this page is rendered dynamically
 import { Plus_Jakarta_Sans } from "next/font/google";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import LoadingAnimation from "../LoadingAnimation";
 
-export const dynamic = 'force-dynamic'; // Ensure this page is rendered dynamically
-
+ 
 
 const plus_jakarta_sans=Plus_Jakarta_Sans({
     subsets:['latin'],
@@ -14,7 +14,7 @@ const plus_jakarta_sans=Plus_Jakarta_Sans({
 
 function EmailVerifySection() {
     let searchParams=useSearchParams();
-    let accessToken=searchParams.get('url');
+    let accessToken=searchParams?.get('url');
     let[sessionExpired,setSessionExpired]=useState(false);
     let router=useRouter();
     useEffect(()=>{

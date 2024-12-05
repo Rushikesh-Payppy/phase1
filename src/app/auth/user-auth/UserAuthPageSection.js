@@ -1,10 +1,10 @@
 'use client';
+
+//to avoid generate asa static page
+export const dynamic='force-dynamic';
 import { Plus_Jakarta_Sans } from 'next/font/google';
 
 import Image from 'next/image';
-
-//to avoid generate asa static page
-export const dynamic='dynamic';
 //import 
 import Logo from '@/Images/UserAuth/payppy-logo.svg';
 import Insta from '@/Images/UserAuth/insta.svg';
@@ -105,12 +105,12 @@ function UserAuthPageSection() {
 
       //if the url contains the auth=login query then this signInview will gets assign to tru and forgot password & not a member sign up link will get rendered
       useEffect(()=>{
-        let referrelId=paramsValue.get('referral_code');
+        let referrelId=paramsValue?.get('referral_code');
         if(referrelId)
         {
             localStorage.setItem('ref',referrelId);
         }
-        let islogin=paramsValue.get('auth');
+        let islogin=paramsValue?.get('auth');
         setSignInView(islogin==='login');
         //when we change the view like sign up or login this below fields are becoming empty
             setEmail('');

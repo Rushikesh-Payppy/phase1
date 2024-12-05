@@ -1,11 +1,13 @@
 import EmailVerifySection from "./EmailVerifySection";
-
+import { Suspense } from "react";
 
 function Page() {
     
     return(
         <>
-        <EmailVerifySection/>
+        <Suspense>
+            <EmailVerifySection/>
+        </Suspense>
         </>
     )
 }

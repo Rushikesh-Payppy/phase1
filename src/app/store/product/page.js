@@ -1,11 +1,13 @@
 import ProductSection from "./ProductSection";
-
+import { Suspense } from "react";
 
 function Page() {
     
     return(
         <>
-        <ProductSection/>
+        <Suspense>
+            <ProductSection/>
+        </Suspense>
         </>
     )
 }
