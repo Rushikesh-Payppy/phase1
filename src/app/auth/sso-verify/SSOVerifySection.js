@@ -38,7 +38,14 @@ function SSOVerifySection() {
             {
                 console.log(response);
                 
-                window.location.href='/store/user-info';
+                if(response&&'mobile_verified' in response&&!response.mobile_verified)
+                {
+                    window.location.href='/store/user-info';
+                }
+                else{
+                    window.location.href='/landing-page';
+                    
+                }
             }
         })
         .catch((error)=>{

@@ -35,7 +35,7 @@ const CookiesPolicySection = () => {
 
   return (
     <>
-      <article className={"overflow-scroll scroll-smooth max-w-[52.7vh] h-screen min-w-[200px] min-h-[200px] mx-auto border-r-[0.5px] border-l-[0.5px] custom-border-grey950 " + plus_jakarta_sans.className} >
+      <article className={"page-center-parent-container  overflow-scroll small-border-x border-black  scroll-smooth background-custom-grey50 " + plus_jakarta_sans.className} >
 
         {/* page close button */}
         <PageCloseButton />

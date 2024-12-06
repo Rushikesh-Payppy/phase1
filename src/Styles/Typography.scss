@@ -334,12 +334,14 @@ $alert:#E13A3A;
 
 //style for center container
 .page-center-parent-container{
-    height: auto;
+    height: 100vh;
     min-width: 360px;
     // overflow: scroll;
     min-height: 750px ;
     aspect-ratio: 16 / 9;
     width: 52.7vh;
+    margin: 0 auto;
+    max-height: 100vh;
 }
 
 @media screen and (max-width:640px) {

@@ -57,14 +57,15 @@ function OtpInputs({sessionId,phone_number,setScreenView,alreadyRegistered})
 
         if (value.length>0) {
             otp.current[index].classList.add("custom-text-white", "bg-black");
+            otp.current[index+1]?.focus();
           }
        
 
        
-        if(value.length>1 )
-        {
-            return;
-        }
+        // if(value.length>1 )
+        // {
+        //     return;
+        // }
         if(value.length===1&&index<5)
         {
             otp.current[index+1].focus();
@@ -102,7 +103,7 @@ function OtpInputs({sessionId,phone_number,setScreenView,alreadyRegistered})
         if(backBtnpressed)
         {
             //set the previous view
-            setScreenView('section');
+            setScreenView(0);
         }
     }
 
@@ -120,7 +121,8 @@ function OtpInputs({sessionId,phone_number,setScreenView,alreadyRegistered})
         .then((response)=>{
             if(response && 'message' in response && response.message==="Mobile number verified successfully.")
             {
-                router.push('/welcome-to-payppy');
+                // router.push('/welcome-to-payppy');
+                setScreenView(2);
             }
              if(response && "status" in response && response.status===500)
             {
@@ -177,11 +179,11 @@ function OtpInputs({sessionId,phone_number,setScreenView,alreadyRegistered})
     }
     return(
         <>
-        <section className={"flex justify-center h-screen w-full background-custom-grey100  overflow-hidden "+plus_jakarta_sans.className}>
-            <div className="page-center-parent-container small-border custom-border-grey600 relative">
-                <div className="flex flex-col px-6 pt-2 pb-10 background-custom-grey100 gap-8 h-screen ">
+        {/* <section className={"flex justify-center h-screen w-full background-custom-grey100  overflow-hidden "+plus_jakarta_sans.className}> */}
+            <div className="page-center-parent-container overflow-hidden small-border custom-border-grey600 relative">
+                        <Image src={Arrow} width={36} height={36} alt='img' quality={100} className='absolute top-8 left-6' onClick={()=>{handleBackBtn(true)}}/>
+                <div className="flex flex-col px-6 pt-24 pb-10 background-custom-grey100 gap-8 h-screen ">
                     <div className="flex flex-col gap-10 ">
-                        <Image src={Arrow} width={36} height={36} alt='img' quality={100} onClick={()=>{handleBackBtn(true)}}/>
                         <div className="flex flex-col gap-8">
                             <div className="flex flex-col gap-2">
                                 <h3 className="heading-h3 custom-text-grey900 ">Enter 6 digit code we sent to <br />+91 {phone_number}</h3>
@@ -208,7 +210,7 @@ function OtpInputs({sessionId,phone_number,setScreenView,alreadyRegistered})
 
                 </div>
             </div>
-        </section>
+        {/* </section> */}
         </>
     )
 }

@@ -1,10 +1,10 @@
+//Original code
 import axios from "axios";
-
 
 async function FlixForYouApi()
 {
     try {
-        let response=await axios.get('http://148.135.138.27:1337/api/flixes/?populate=*');
+        let response = await axios.get('https://strapi.payppy.app/api/flixes/?populate=*');
 
         return response.data;
     } catch (error) {
@@ -14,3 +14,6 @@ async function FlixForYouApi()
 }
 
 export default FlixForYouApi;
+
+
+  

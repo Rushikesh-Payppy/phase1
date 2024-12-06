@@ -51,16 +51,37 @@ function SoftLaunchOtpInputs({name,lastname,accessToken,phone_number,setUserInfo
             return;
         }
 
+        // if (value.length>0) {
+        //     const pastedValue = value.split(""); // Split the pasted string into individual characters
+        //     pastedValue.forEach((char, idx) => {
+        //         const currentIndex =  idx;
+        //         // if (currentIndex < otp.current.length) {
+        //             otp.current[currentIndex].value = char;
+        //             otp.current[currentIndex].classList.add("custom-text-white", "bg-black");
+        //         // }
+        //     });
+    
+        //     // Focus the last filled input
+        //     const nextIndex = index + pastedValue.length;
+        //     if (nextIndex < otp.current.length) {
+        //         otp.current[nextIndex]?.focus();
+        //     } else if (allInputsFilled()) {
+        //         verifyOtp(); // Trigger API call if all inputs are filled
+        //     }
+        //     return;
+        // }
+    
+
         if (value.length>0) {
             otp.current[index].classList.add("custom-text-white", "bg-black");
           }
        
 
        
-        if(value.length>1 )
-        {
-            return;
-        }
+        // if(value.length>1 )
+        // {
+        //     return;
+        // }
         if(value.length===1&&index<5)
         {
             otp.current[index+1].focus();
@@ -183,11 +204,11 @@ function SoftLaunchOtpInputs({name,lastname,accessToken,phone_number,setUserInfo
     }
     return(
         <>
-        <section className={"flex justify-center h-screen w-full background-custom-grey100  overflow-hidden "+plus_jakarta_sans.className}>
-            <div className="page-center-parent-container small-border custom-border-grey600 relative">
-                <div className="flex flex-col px-6 pt-6 pb-10 background-custom-grey100 gap-8 h-screen ">
+        {/* <section className={"flex justify-center h-screen w-full background-custom-grey100  overflow-hidden "+plus_jakarta_sans.className}> */}
+            <div className="page-center-parent-container overflow-hidden small-border custom-border-grey600 relative">
+                        <Image src={Arrow} width={36} height={36} alt='img' quality={100} className='cursor-pointer absolute top-6 left-6' onClick={()=>{handleBackBtn(true)}}/>
+                <div className="flex flex-col px-6 pt-24 pb-10 background-custom-grey50 gap-8 h-screen ">
                     <div className="flex flex-col gap-10 ">
-                        <Image src={Arrow} width={36} height={36} alt='img' quality={100} onClick={()=>{handleBackBtn(true)}}/>
                         <div className="flex flex-col gap-8">
                             <div className="flex flex-col gap-2">
                                 <h2 className="heading-h2 custom-text-grey900 ">Enter 6 digit code we sent to <br />+91 {phone_number}</h2>
@@ -196,14 +217,14 @@ function SoftLaunchOtpInputs({name,lastname,accessToken,phone_number,setUserInfo
                                 <div className="grid grid-cols-6 small-border border-l-0 custom-border-grey800 w-full ">
                                     {Array(6).fill(0).map((element,index)=>{
                                         return<div className={`${index>0?' small-border-left ':'' } h-16 custom-border-grey800 flex justify-center items-center `} key={index}>
-                                            <input type="tel"  ref={ref=>(otp.current[index]=ref)} className={`outline-none h-full px-5 heading-h2 w-full otp-input-fields text-center `} maxLength={1} onChange={(e)=>{handleOtp(e,index)}} onKeyDown={(e)=>{handleBackspace(e,index)}} />
+                                            <input type="tel"  ref={ref=>(otp.current[index]=ref)} className={`outline-none h-full px-5 heading-h2 w-full otp-input-fields text-center `}  onChange={(e)=>{handleOtp(e,index)}} onKeyDown={(e)=>{handleBackspace(e,index)}} />
                                         </div>
                                     })}
                                    
                                 </div>
                                {invalidOtp&&<div className="custom-text-alert body-sm">Incorrect Code or Otp Expired</div>}
 
-                               {timer>0 ?<div className="custom-text-grey500 body-sm">Resend code in 00:{timer}sec</div>:
+                               {timer>0 ?<div className="custom-text-grey600 body-sm">Resend code in 00:{timer}sec</div>:
                                <div className="custom-text-grey800 body-sm-bold cursor-pointer underline" onClick={handleResendOtp}>Resend code</div>}
 
                               {isOtpResend&& <div className="custom-text-grey800 body-sm cursor-pointer " >Code Resend!</div>}
@@ -214,7 +235,7 @@ function SoftLaunchOtpInputs({name,lastname,accessToken,phone_number,setUserInfo
 
                 </div>
             </div>
-        </section>
+        {/* </section> */}
         </>
     )
 }

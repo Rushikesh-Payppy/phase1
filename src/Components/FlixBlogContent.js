@@ -12,18 +12,19 @@ const plus_jakarta_sans = Plus_Jakarta_Sans({
 });
 
 // icons
-import arrowIcon from "@/Images/flix/arrow-right.svg";
-import leftChevron from "@/Images/flix/chevron-icon.svg";
+import arrowIcon from "@/Images/home/arrow-right.svg";
 
 //logo
-import hotAndCoolLogo from "@/Images/flix/hotandcool.svg";
+import hotAndCoolLogo from "@/Images/login/hotandcool.svg";
 
 // Feature images
 import foryouImage0 from "@/Images/flix/for-you.png";
 import featureImg1 from "@/Images/flix/feature2.jpg";
 
+
+
 //base URL
-let baseUrl = "http://148.135.138.27:1337";
+let baseUrl = "https://strapi.payppy.app/";
 
 
 const FlixBlogContent = ({ data }) => {
@@ -31,30 +32,21 @@ const FlixBlogContent = ({ data }) => {
 
 
   function handleReadMore() {
-    router.push("/flix/for-you/" + data.documentId);
+    router.push("/flix/" + data.documentId);
   }
 
-  const handleBack = ()=>{
-    router.push("/");
-  }
   
   return (
     <>
       <article className="relative w-full h-full flex flex-col justify-end snap-start snap-always ">
        {/* hot and cool LOGO */}
-       <Image src={hotAndCoolLogo} width={58} height={44} alt="hot&cool" quality={100} className="absolute bottom-10 right-9 z-[1]" />
+       <Image src={hotAndCoolLogo} width={58} height={44} alt="hot&cool" quality={100} className="absolute bottom-10 right-9" />
 
        {/* blog image */}
-        <Image  src={getImgUrl(data)} alt="img" width={390} height={802} quality={100} className="absolute top-0 left-0 min-w-[200px] w-full h-full object-cover " />
-
-         {/* Back Button */}
-         <button onClick={handleBack} className={`absolute top-0 left-0 mt-6 ml-6 bg-[#FDFBF8] gap-8 p-3 border-[0.5px] border-[#3D3E40] rounded-[90px]`}>
-          <Image  src={leftChevron} width={24} height={24} alt="img" quality={100} />
-        </button>
-
+        <Image  src={getImgUrl(data)} alt="img" width={390} height={802} quality={100} className="absolute top-0 left-0 min-w-[200px] w-full h-full object-cover -z-[1]" />
        
        {/* Blog title */}
-        <section  className={ "section-gradient w-full h-1/2 flex justify-center items-center z-0 " + plus_jakarta_sans.className} >
+        <section  className={ "section-gradient w-full h-1/2 flex justify-center items-center " + plus_jakarta_sans.className} >
   
           <Link  href={"/flix/flix-blogs/" + data.documentId} className="gap-6 mx-4 flex flex-col items-center py-10" >
             <h1 className="heading-h1 custom-text-white text-center ">
@@ -73,6 +65,7 @@ const FlixBlogContent = ({ data }) => {
         </section>
       
       {/* footer */}
+        {/* <FlixFooter positionValue="absolute" backOption="/" /> */}
       
       </article>
     </>
@@ -89,3 +82,9 @@ function getImgUrl(data) {
 }
 
 export {getImgUrl};
+
+
+//   {/* Back Button */}
+//   <button onClick={handleBack} className={`absolute top-0 left-0 mt-6 ml-6 bg-[#FDFBF8] gap-8 p-3 border-[0.5px] border-[#3D3E40] rounded-[90px]`}>
+//   <Image  src={leftChevron} width={24} height={24} alt="img" quality={100} />
+// </button>

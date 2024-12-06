@@ -1,7 +1,8 @@
 * {
   padding: 0;
   margin: 0;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 .policies h1, .policies h2, .policies h3, .policies h4 .policies h5 {

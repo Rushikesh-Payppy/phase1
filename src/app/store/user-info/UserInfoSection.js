@@ -172,13 +172,14 @@ function UserInfoSection()
      }
     return(
         <>
-            {userInfoView===0&&<section className={"flex justify-center  background-custom-grey50  h-screen "+plus_jakarta_sans.className}>
-                <div className="page-center-parent-container px-6 py-10 small-border border-custom-grey800 h-full ">
+            {userInfoView===0&&
+            // <section className={"flex justify-center  background-custom-grey50  h-screen  overflow-hidden "+plus_jakarta_sans.className}>
+                <div className="page-center-parent-container background-custom-grey50 border-black overflow-hidden px-6 py-24 small-border border-custom-grey800 h-full ">
                     <div className="flex flex-col gap-10 ">
                         <div className="flex flex-col gap-8">
                             <div className="flex flex-col gap-2">
-                                <h2 className="heading-h2 custom-text-grey900 ">What’s your full name?</h2>
-                                <div className="body-sm custom-text-grey700">Let's get to know you</div>
+                                <h2 className="heading-h2 custom-text-grey900 ">Quick intros... 
+                                <br />What should we call you?</h2>
                             </div>
                             <div className="flex flex-col gap-1.5">
                                 <div className="all-caps-12-bold custom-text-grey900">First name</div>
@@ -196,20 +197,21 @@ function UserInfoSection()
                         </div>
                     </div>
 
-                </div>
-            </section>}
-            {userInfoView===1&&<section className={"flex justify-center  background-custom-grey50  h-screen  "+plus_jakarta_sans.className}>
-                <div className="page-center-parent-container px-6 py-10 small-border border-custom-grey800">
+                </div>}
+            {/* </section>} */}
+            {userInfoView===1&&
+            // <section className={"flex justify-center  background-custom-grey50  h-screen  overflow-hidden "+plus_jakarta_sans.className}>
+                <div className="page-center-parent-container background-custom-grey50 border-black overflow-hidden px-6 py-24 small-border border-custom-grey800 relative">
                     <div className="flex flex-col gap-10 ">
-                        <Image src={Arrow} width={32} height={32} alt='img' quality={100} className='cursor-pointer' onClick={handleBackButtonClick}/>
+                        <Image src={Arrow} width={32} height={32} alt='img' quality={100} className='cursor-pointer absolute left-6 top-8' onClick={handleBackButtonClick}/>
                             
                             <div className="flex flex-col gap-6 items-center">
                             
-                                <div className="flex flex-col gap-5">
-                                    <Image src={Badge} width={200} height={200} alt='img' quality={100} className=' w-auto h-auto cursor-pointer'/>          
+                                <div className="flex flex-col items-center gap-5">
+                                    <Image src={Badge} width={200} height={200} alt='img' quality={100} className='  cursor-pointer'/>          
                                     <div className="flex flex-col gap-2.5 items-center">
-                                        <h2 className="heading-h2 text-center">Hi {name},<br />Nice to meet you!</h2>
-                                        <div className="body-sm custom-text-grey800">We're one step closer to finishing your account</div>
+                                        <h2 className="heading-h2 text-center max-w-xs w-full">Yay! You're now on the Welcome Tier!</h2>
+                                        <div className="body-sm custom-text-grey800">One last step...</div>
                                     </div>     
                                 </div>
                                 <button className={`py-4 px-7 w-full background-custom-grey900 shadow-sm custom-text-white all-caps-12`}  onClick={handleBadgeViewProceed}>Proceed</button>
@@ -217,22 +219,23 @@ function UserInfoSection()
                             </div>
                     </div>
 
-                </div>
-            </section>}
-            {userInfoView===2&&<section className={"flex justify-center  background-custom-grey50  h-screen  "+plus_jakarta_sans.className}>
-                <div className="page-center-parent-container px-6 py-10 small-border border-custom-grey800">
+                </div>}
+            {/* </section>} */}
+            {userInfoView===2&&
+            // <section className={"flex justify-center  background-custom-grey50  h-screen overflow-hidden "+plus_jakarta_sans.className}>
+                <div className="page-center-parent-container background-custom-grey50 border-black  overflow-hidden px-6 py-24 small-border border-custom-grey800 relative">
                     <div className="flex flex-col gap-10 ">
-                        <Image src={Arrow} width={32} height={32} alt='img' quality={100} className='cursor-pointer' onClick={handleBackButtonClick}/>
+                        {/* <Image src={Arrow} width={32} height={32} alt='img' quality={100} className='cursor-pointer' onClick={handleBackButtonClick}/> */}
 
                         <div className="flex flex-col gap-8">
                             <div className="flex flex-col gap-2">
-                                <h3 className="heading-h3 custom-text-grey900 ">Verify your phone number</h3>
+                                <h2 className="heading-h2 custom-text-grey900 ">Verify your phone number</h2>
                                 <div className="body-sm custom-text-grey700">We secure your account, not spam it</div>
                             </div>
                             <div className="flex flex-col gap-6">
                                 <div className="flex flex-col gap-1.5">
-                                    <div className="body-sm-bold custom-text-grey900">Phone Number</div>
-                                    <input type="text" name="phone" maxLength={10} value={phoneNumber}  className='w-full border border-custom-grey300 outline-none py-3.5 px-5 ' onChange={handlePhoneInput} onKeyDown={handleMobileNumberKeyEnter}/>
+                                    <div className="all-caps-12-bold custom-text-grey900">Phone Number</div>
+                                    <input type="text" name="phone" maxLength={10} value={phoneNumber}  className='w-full small-border border-black outline-none py-3.5 px-5 ' onChange={handlePhoneInput} onKeyDown={handleMobileNumberKeyEnter}/>
                                 </div>
                                 <div className="flex flex-col gap-1">
                                     {invalidPhoneNumebr&&<div className="custom-text-alert body-sm text-center">Please enter a valid Phone Number</div>}
@@ -243,8 +246,8 @@ function UserInfoSection()
                         </div>
                     </div>
 
-                </div>
-            </section>}
+                </div>}
+             {/* </section>} */}
             {userInfoView===3&&<SoftLaunchOtpInputs name={name} lastname={lastName} setUserInfoView={setUserInfoView} sessionId={sessionId} accessToken={accessToken} phone_number={phoneNumber}/>}
 
 

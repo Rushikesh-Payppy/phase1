@@ -72,24 +72,24 @@ function ResetPasswordEmailResendSection({email,setResetPasswordSteps,alreadyReg
     }
     return(
         <>
-        <section className={"flex justify-center h-screen w-full background-custom-grey100  overflow-hidden "+plus_jakarta_sans.className}>
+        {/* <section className={"flex justify-center h-screen w-full background-custom-grey100  overflow-hidden "+plus_jakarta_sans.className}> */}
             
-            <div className="page-center-parent-container small-border custom-border-grey600 background-custom-white">
+            <div className="page-center-parent-container overflow-hidden border-black small-border custom-border-grey600 background-custom-white">
                 
-                <div className="flex flex-col px-6 pt-2 pb-10 background-custom-grey100 gap-8 h-screen ">
+                <div className="flex flex-col px-6 pt-24 pb-10 background-custom-grey100 gap-8 h-screen relative ">
                     
+                            <Image src={Arrow} width={36} height={36} alt='img' quality={100} className='cursor-pointer absolute top-6 left-6' onClick={handleBackBtn} />
                         <div className="flex flex-col gap-10 ">
-                            <Image src={Arrow} width={36} height={36} alt='img' quality={100} className='cursor-pointer' onClick={handleBackBtn} />
 
                             <div className="flex flex-col gap-8">
 
                                 <div className="flex flex-col gap-2">
                                     <h3 className="heading-h3 custom-text-grey900 ">We’ve sent a verification link to {email} </h3>
-                                    <div className="body-sm custom-text-grey700">One step away from setting a new password.</div>
+                                    <div className="body-sm custom-text-grey700">We're one step closer to setting a new password</div>
                                 </div>
 
-                               {/* {emailRegistered? <span className="custom-text-alert body-sm">Your email is already verified.</span>
-                               : <h5 className="heading-h5 custom-text-grey900">To verify your email, tap the button in the email we sent you</h5>} */}
+                                {emailRegistered? <span className="custom-text-alert body-sm">Your email is already verified.</span>
+                               : <h5 className="heading-h5 custom-text-grey900">To verify your email, tap the button in the email we sent you</h5>} 
 
                                 {timer > 0 ? <div className="custom-text-grey500 body-sm">Resend link in 00:{timer}sec</div> :
                                     <div className="custom-text-grey800 body-sm-bold cursor-pointer underline" onClick={handleResendEmail}>Resend link</div>}
@@ -99,7 +99,7 @@ function ResetPasswordEmailResendSection({email,setResetPasswordSteps,alreadyReg
 
                 </div>
             </div>
-        </section>
+        {/* </section> */}
         </>
     )
 }

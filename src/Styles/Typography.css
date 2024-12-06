@@ -280,11 +280,13 @@
 }
 
 .page-center-parent-container {
-  height: auto;
+  height: 100vh;
   min-width: 360px;
   min-height: 750px;
   aspect-ratio: 16/9;
   width: 52.7vh;
+  margin: 0 auto;
+  max-height: 100vh;
 }
 
 @media screen and (max-width: 640px) {
@@ -299,11 +301,13 @@
 }
 
 .store-button-shadow {
-  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.0509803922);
+  -webkit-box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.0509803922);
+          box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.0509803922);
 }
 
 .snap-x-custom {
-  scroll-snap-type: x mandatory;
+  -ms-scroll-snap-type: x mandatory;
+      scroll-snap-type: x mandatory;
 }
 
 .snap-start-custom {
@@ -311,5 +315,6 @@
 }
 
 .get-light-img {
-  filter: brightness(100);
+  -webkit-filter: brightness(100);
+          filter: brightness(100);
 }/*# sourceMappingURL=Typography.css.map */

@@ -4,6 +4,7 @@ import '@/Styles/Typography.css';
 
 //component
 import PWAInstallPrompt from "@/Components/PWAInstallPrompt";
+import { Plus_Jakarta_Sans } from "next/font/google";
 
 
 // const geistSans = localFont({
@@ -47,6 +48,12 @@ export const metadata = {
  ],
 };
 
+
+const plus_jakarta_sans = Plus_Jakarta_Sans({
+  subsets: ['latin'],
+  display: 'swap'
+})
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
@@ -55,7 +62,7 @@ export default function RootLayout({ children }) {
       <link rel="icon" href="/icons/icon-512.png"/>
       <link rel="apple-touch-icon" href="/icons/icon-512.png"/>
     </head>
-      <body className="">
+      <body className={" "+plus_jakarta_sans.className}>
         {children}
         {/* <PWAInstallPrompt/> */}
       </body>

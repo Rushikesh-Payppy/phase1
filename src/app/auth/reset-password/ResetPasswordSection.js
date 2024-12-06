@@ -99,18 +99,19 @@ function ResetPasswordSection()
     }
     return(
         <>
-            {resetPasswordSteps==0&&<section className={"flex justify-center  background-custom-grey50   "+plus_jakarta_sans.className}>
-                <div className="page-center-parent-container px-6 py-10 small-border border-custom-grey800">
+            {resetPasswordSteps==0&&
+            // <section className={"flex justify-center  background-custom-grey50   "+plus_jakarta_sans.className}>
+                <div className="page-center-parent-container overflow-hidden border-black px-6 py-10 small-border border-custom-grey800">
                     <div className="flex flex-col gap-10 ">
                         <Image src={Arrow} width={32} height={32} alt='img' quality={100} className='cursor-pointer' onClick={handleBackButtonClick}/>
                         <div className="flex flex-col gap-8">
                             <div className="flex flex-col gap-2">
-                                <h3 className="heading-h3 custom-text-grey900 ">Reset Password</h3>
-                                <div className="body-sm custom-text-grey700">We’ll send a confirmation code to your email or phone number. Once verified, you can set a new password.</div>
+                                <h2 className="heading-h2 custom-text-grey900 ">Reset Password</h2>
+                                <div className="body-sm custom-text-grey700">We'll send a verification link. Once you verify it, you can set a new password</div>
                             </div>
                             <div className="flex flex-col gap-1.5">
-                                <div className="body-sm-bold custom-text-grey900">Email</div>
-                                <input type="text" name="numberOrEmail" value={email} className='w-full border border-custom-grey300 outline-none py-3.5 px-5 ' onChange={handleEmailInput} onKeyDown={handleKeyEnter}/>
+                                <div className="all-caps-12-bold custom-text-grey900">Email</div>
+                                <input type="text" name="numberOrEmail" value={email} className='w-full small-border border-black outline-none py-3.5 px-5 ' onChange={handleEmailInput} onKeyDown={handleKeyEnter}/>
                                 {invalidEmail&&email.length>0&&<span className="custom-text-alert body-sm">Please enter a valid email address</span>}
                                 {invalidCredential&&<span className="custom-text-alert body-sm">Invalid Email Address</span>}
                             </div>
@@ -120,7 +121,9 @@ function ResetPasswordSection()
                     </div>
 
                 </div>
-            </section>}
+            // </section>
+            }
+
             {resetPasswordSteps==1&&<ResetPasswordEmailResendSection email={email} alreadyRegistered={false} setResetPasswordSteps={setResetPasswordSteps}/>}
 
 
