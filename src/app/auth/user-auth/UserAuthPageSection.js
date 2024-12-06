@@ -293,6 +293,15 @@ function UserAuthPageSection() {
         }
     }
 
+
+    //if someone click the default showed login button
+    function handleLogInAboveButton()
+    {
+        setEmailInputVisibility(true);
+        router.push('/auth/user-auth?auth=login');
+        
+    }
+
      //getting access token
      function getAccessToken()
      {
@@ -379,7 +388,7 @@ function UserAuthPageSection() {
                                    {!emailInputsVisibility? 
                                    <div className="flex gap-2 justify-center ">
                                         <div className="custom-text-grey700 body">Already a member? </div>
-                                        <Link href='/auth/user-auth?auth=login' className='body-bold custom-text-grey800 underline pb-2.5'>Log in</Link>
+                                        <button className='body-bold custom-text-grey800 underline pb-2.5' onClick={handleLogInAboveButton}>Log in</button>
                                     </div>
                                        : 
                                        <>
@@ -408,7 +417,7 @@ function UserAuthPageSection() {
                                {signInView&&<Link href='/auth/reset-password' className='body-bold custom-text-grey800 underline pb-2.5'>Forgot Password?</Link>}
 
                                 <div className="flex flex-col gap-2">
-                                  {signInView?  <button className={`py-4 px-7 w-full flex justify-center items-center shadow-sm custom-text-white all-caps-12 text-center   bg-black `} onClick={handleProceedForSignIn} >{loadingAnimation?<LoadingAnimation borderColor='border-white'/>:<span>Proceed</span>}</button>
+                                  {signInView?  <button className={`py-4 px-7 w-full flex justify-center items-center shadow-sm custom-text-white all-caps-12 text-center   bg-black `} onClick={handleProceedForSignIn}    disabled={loadingAnimation} >{loadingAnimation?<LoadingAnimation borderColor='border-white'/>:<span>Proceed</span>}</button>
                                     :<button className={`py-4 px-7 w-full flex justify-center items-center shadow-sm custom-text-white all-caps-12  text-center ${invalidPassword?' background-custom-grey500 ':'  bg-black '}`} onClick={handleProceedForSignUp} disabled={invalidPassword || invalidEmail}>{loadingAnimation?<LoadingAnimation borderColor='border-white'/>:<span>Proceed</span>}</button>}
                                    {userAlreadyVerified&& <span className="custom-text-alert body-sm text-center">An account with this email already exists. Please log in</span>}
                                    {invalidCredentails&& <span className="custom-text-alert body-sm text-center">invalid Credentials</span>}

@@ -4,7 +4,7 @@ import axios from "axios";
 async function PoliciesApi(title)
 {
     try {
-        let response=await axios.get(`http://148.135.138.27:1337/api/policies?populate=*`);
+        let response=await axios.get(`https://strapi.payppy.app/api/policies?populate=*`);
 
         let data=response.data;
 

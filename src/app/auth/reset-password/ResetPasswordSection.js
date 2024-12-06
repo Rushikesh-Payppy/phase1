@@ -114,7 +114,7 @@ function ResetPasswordSection()
                                 {invalidEmail&&email.length>0&&<span className="custom-text-alert body-sm">Please enter a valid email address</span>}
                                 {invalidCredential&&<span className="custom-text-alert body-sm">Invalid Email Address</span>}
                             </div>
-                            <button className={`py-4 px-7 w-full ${invalidEmail?' background-custom-grey500 ':' bg-black '} shadow-sm custom-text-white all-caps-12 flex justify-center items-center text-center`} disabled={invalidEmail} onClick={handleForgotPasswordProceed}>{sendingPasswordLink?<LoadingAnimation borderColor={'border-white'}/>:'Proceed'}</button>
+                            <button className={`py-4 px-7 w-full ${invalidEmail?' background-custom-grey500 ':' bg-black '} shadow-sm custom-text-white all-caps-12 flex justify-center items-center text-center`} disabled={invalidEmail || sendingPasswordLink} onClick={handleForgotPasswordProceed} >{sendingPasswordLink?<LoadingAnimation borderColor={'border-white'}/>:'Proceed'}</button>
 
                         </div>
                     </div>

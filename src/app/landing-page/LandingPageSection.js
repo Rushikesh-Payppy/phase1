@@ -134,22 +134,23 @@ function LandingPageSection()
         <>
            {gettingAccessToken ? <IntialLoadingAnimation/> 
            :
-            <section className={"flex justify-center h-screen w-full background-custom-grey100   " + plus_jakarta_sans.className}>
-                <div className="page-center-parent-container  h-full  overflow-scrollbar-hidden small-border-x custom-border-grey800 overflow-scroll relative " >
+            <section className={"flex justify-center h-screen w-full background-custom-grey100  overflow-scroll " + plus_jakarta_sans.className}>
+                <div className="page-center-parent-container  h-full  overflow-scrollbar-hidden small-border-x custom-border-grey800  relative " >
                     {/* hero section */}
 
 
-                    <div className=" h-[60%] px-10 pt-20 pb-12 flex flex-col justify-between items-center gap-10 relative overflow-hidden ">
-                    <Image src={Logout} width={32} height={32} alt="" quality={100} className=" absolute z-[1] top-6 right-6 cursor-pointer" onClick={handleLogOut} />
-
-                        <Image src={Hero} width={390} height={516} alt="" quality={100} className="w-full h-full object-cover absolute z-0 top-0 left-0" />
-                        <div className="bg-landingpage-gradient absolute top-0 left-0 h-full w-full "></div>
-                        <Image src={Logo} width={32} height={32} alt="img" quality={100} className="z-[1]" />
-                        <div className="flex flex-col gap-2 items-center z-[1]">
-                            <h2 className="heading-h2 custom-text-white text-center">Welcome {userName}! </h2>
-                        <div className="all-caps-14-bold custom-text-white">Payppy 2.0 is launching soon...</div>
+                        <div className="   flex flex-col justify-between items-center  relative w-full  " >
+                            <Image src={Logout} width={32} height={32} alt="" quality={100} className=" absolute z-[1] top-6 right-6 cursor-pointer" onClick={handleLogOut} />
+                            <Image src={Hero} width={390} height={440} alt="" quality={100} className="w-full h-auto object-cover " />
+                            <div className="bg-landingpage-gradient absolute top-0 left-0  w-full h-full "></div>
+                            <div className="flex flex-col h-full absolute justify-between items-center z-[1] px-10   py-10 ">
+                                <Image src={Logo} width={32} height={32} alt="img" quality={100} className=" " />
+                                <div className="flex flex-col gap-2 items-center   ">
+                                    <h2 className="heading-h2 custom-text-white text-center">Welcome {userName}! </h2>
+                                    <div className="all-caps-14-bold custom-text-white">Payppy 2.0 is launching soon...</div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
                     
                     <div className="grid grid-cols-2  ">
                         <div className="small-border-bottom border-black py-8 px-6 flex flex-col gap-2 items-center">

@@ -198,7 +198,7 @@ function UserInfoSection()
 
                 </div>
             </section>}
-            {userInfoView===1&&<section className={"flex justify-center  background-custom-grey50   "+plus_jakarta_sans.className}>
+            {userInfoView===1&&<section className={"flex justify-center  background-custom-grey50  h-screen  "+plus_jakarta_sans.className}>
                 <div className="page-center-parent-container px-6 py-10 small-border border-custom-grey800">
                     <div className="flex flex-col gap-10 ">
                         <Image src={Arrow} width={32} height={32} alt='img' quality={100} className='cursor-pointer' onClick={handleBackButtonClick}/>
@@ -219,7 +219,7 @@ function UserInfoSection()
 
                 </div>
             </section>}
-            {userInfoView===2&&<section className={"flex justify-center  background-custom-grey50   "+plus_jakarta_sans.className}>
+            {userInfoView===2&&<section className={"flex justify-center  background-custom-grey50  h-screen  "+plus_jakarta_sans.className}>
                 <div className="page-center-parent-container px-6 py-10 small-border border-custom-grey800">
                     <div className="flex flex-col gap-10 ">
                         <Image src={Arrow} width={32} height={32} alt='img' quality={100} className='cursor-pointer' onClick={handleBackButtonClick}/>
@@ -236,7 +236,7 @@ function UserInfoSection()
                                 </div>
                                 <div className="flex flex-col gap-1">
                                     {invalidPhoneNumebr&&<div className="custom-text-alert body-sm text-center">Please enter a valid Phone Number</div>}
-                                    <button className={`py-4 px-7 w-full  bg-black ' shadow-sm custom-text-white all-caps-12 text-center flex justify-center items-center `} onClick={handleSendOtp} >{sendingOtp?<LoadingAnimation borderColor='border-white' />:'Send Otp'}</button>
+                                    <button className={`py-4 px-7 w-full  bg-black ' shadow-sm custom-text-white all-caps-12 text-center flex justify-center items-center `} onClick={handleSendOtp} disabled={sendingOtp}>{sendingOtp?<LoadingAnimation borderColor='border-white' />:'Send Otp'}</button>
                                 </div>
                             </div>
 
