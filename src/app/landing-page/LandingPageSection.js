@@ -126,10 +126,10 @@ function LandingPageSection()
         })
     }
   
-    // function handleFashionBlogClick()
-    // {
-    //     router.push('/flix');
-    // }
+    function handleFashionBlogClick()
+    {
+        router.push('/flix');
+    }
     return(
         <>
            {gettingAccessToken ? <IntialLoadingAnimation/> 
@@ -179,7 +179,7 @@ function LandingPageSection()
 
                     </div>
 
-                    {/* <button className="background-custom-green all-caps-12-bold custom-text-grey900 w-full text-center py-4" onClick={handleFashionBlogClick}>EXPLORE FASHION BLOGS</button> */}
+                    <button className="background-custom-green all-caps-12-bold custom-text-grey900 w-full text-center py-4" onClick={handleFashionBlogClick}>EXPLORE FASHION BLOGS</button>
 
                     <div className="flex flex-col justify-center gap-5 items-center z-[1] background-custom-grey50 py-7 px-6 small-border-top border-black">
                             <div className="flex items-center gap-5">

@@ -1,31 +1,25 @@
 * {
   padding: 0;
   margin: 0;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 .loginpage-video-gradient {
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(83.8%, rgba(0, 0, 0, 0)), to(rgba(0, 0, 0, 0.15)));
   background: linear-gradient(180deg, rgba(0, 0, 0, 0) 83.8%, rgba(0, 0, 0, 0.15) 100%);
 }
 
 .login-page-photo-gradient {
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(75%, rgba(0, 0, 0, 0)), to(rgba(0, 0, 0, 0.2)));
   background: linear-gradient(180deg, rgba(0, 0, 0, 0) 75%, rgba(0, 0, 0, 0.2) 100%);
 }
 
 .section-gradient {
-  background: -webkit-gradient(linear, left top, left bottom, from(rgba(26, 25, 23, 0)), color-stop(60.99%, rgba(26, 25, 23, 0.5)));
   background: linear-gradient(180deg, rgba(26, 25, 23, 0) 0%, rgba(26, 25, 23, 0.5) 60.99%);
 }
 
 .footer-gradient-dark {
   background: rgba(26, 25, 23, 0.8117647059);
-  -webkit-box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.0588235294);
-          box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.0588235294);
-  -webkit-box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.1019607843);
-          box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.1019607843);
+  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.0588235294);
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.1019607843);
 }
 
 .footer-border-dark {
@@ -47,7 +41,6 @@
 }
 
 .navbar-gradient {
-  background: -webkit-gradient(linear, left top, left bottom, from(rgba(26, 25, 23, 0.5)), color-stop(99.5%, rgba(26, 25, 23, 0)));
   background: linear-gradient(180deg, rgba(26, 25, 23, 0.5) 0%, rgba(26, 25, 23, 0) 99.5%);
 }
 
@@ -62,41 +55,22 @@
 }
 
 .footer-component-gradient {
-  background: -webkit-gradient(linear, left top, left bottom, from(rgba(253, 251, 248, 0)), to(#FDFBF8));
   background: linear-gradient(180deg, rgba(253, 251, 248, 0) 0%, #FDFBF8 100%);
 }
 
 /* Scroll up animation */
-@-webkit-keyframes scrollUp {
-  0% {
-    -webkit-transform: translateY(0);
-            transform: translateY(0); /* start at normal position */
-  }
-  50% {
-    -webkit-transform: translateY(-70px);
-            transform: translateY(-70px); /* slightly scroll up */
-  }
-  100% {
-    -webkit-transform: translateY(0);
-            transform: translateY(0); /* return to normal position */
-  }
-}
 @keyframes scrollUp {
   0% {
-    -webkit-transform: translateY(0);
-            transform: translateY(0); /* start at normal position */
+    transform: translateY(0); /* start at normal position */
   }
   50% {
-    -webkit-transform: translateY(-70px);
-            transform: translateY(-70px); /* slightly scroll up */
+    transform: translateY(-70px); /* slightly scroll up */
   }
   100% {
-    -webkit-transform: translateY(0);
-            transform: translateY(0); /* return to normal position */
+    transform: translateY(0); /* return to normal position */
   }
 }
 /* Apply the animation */
 .scroll-up-animation {
-  -webkit-animation: scrollUp 1000ms ease-in-out;
-          animation: scrollUp 1000ms ease-in-out;
+  animation: scrollUp 1000ms ease-in-out;
 }/*# sourceMappingURL=flix.css.map */
