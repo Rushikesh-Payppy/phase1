@@ -189,6 +189,11 @@ function UserAuthPageSection() {
 
                 if(response.message==='Mail send successfully!')
                 {
+                    if(localStorage.getItem('ref'))
+                    {
+                        localStorage.removeItem('ref');
+                    }
+
                     setRegisterSteps(1);
                 }
                 
@@ -305,7 +310,7 @@ function UserAuthPageSection() {
     function handleLogInAboveButton()
     {
         setEmailInputVisibility(true);
-        router.push('/auth/user-auth?auth=login');
+        router.push('/?auth=login');
         
     }
 
@@ -344,6 +349,7 @@ function UserAuthPageSection() {
                             <div className={"body-bold custom-text-white text-center  "+plus_jakarta_sans.className}>You've landed on the cool side of the world</div>
                         </div>
                         <button className="all-caps-12-bold background-custom-green py-4 px-7 custom-text-grey900 max-w-xs w-full " onClick={handleBecomeAMember}>Enter Payppy</button>
+                      
                         <div className="flex flex-col  items-center z-[1] gap-5">
                                 <div className="flex items-center gap-5">
                                     <a href="https://x.com/payppy_app?s=21" target="_blank" rel="noopener noreferrer">
@@ -365,8 +371,8 @@ function UserAuthPageSection() {
 
                   
 
-                    {/* bottom modal */}
-                    <div className={`w-full flex flex-col gap-8 pt-2 px-6 pb-10 background-custom-grey50 absolute left-0 duration-500 ${showAuthView ? ' bottom-0 z-[2] ' : ' -bottom-[100%] z-0 '}`} ref={authInputContainer}>
+                    {/* bottom modal       if someones mobile height is small and he opened the email inputs then overflow will gets scrolled  */}
+                    <div className={`w-full ${emailInputsVisibility?'max-h-screen overflow-y-scroll':''} flex flex-col gap-8 pt-2 px-6 pb-10 background-custom-grey50 fixed lg:absolute left-0 duration-500 ${showAuthView ? ' bottom-0 z-[2]  ' : ' -bottom-[100%] z-0 '}`} ref={authInputContainer}>
                         <div className="flex justify-center items-center">
                             <div className="w-12 h-0.5 background-custom-grey400"></div>
                         </div>
@@ -438,11 +444,11 @@ function UserAuthPageSection() {
 
                                {signInView ? <div className="flex gap-2 justify-center ">
                                                 <div className="custom-text-grey700 body"> Not a Member?  </div>
-                                                <Link href='/auth/user-auth' className='body-bold custom-text-grey800 underline pb-2.5'>Sign Up</Link>
+                                                <Link href='/' className='body-bold custom-text-grey800 underline pb-2.5'>Sign Up</Link>
                                             </div>
                                         :  <div className="flex gap-2 justify-center ">
                                                 <div className="custom-text-grey700 body">Already a member? </div>
-                                                <Link href='/auth/user-auth?auth=login' className='body-bold custom-text-grey800 underline pb-2.5'>Log in</Link>
+                                                <Link href='/?auth=login' className='body-bold custom-text-grey800 underline pb-2.5'>Log in</Link>
                                             </div>}
                             </div>}
                         </div>

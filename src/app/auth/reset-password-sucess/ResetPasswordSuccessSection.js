@@ -22,7 +22,7 @@ function ResetPasswordSuccessSection() {
 
     function handleBackToLogin()
     {
-        router.push('/auth/user-auth?auth=login')
+        router.push('/?auth=login')
     }
     return(
         <>

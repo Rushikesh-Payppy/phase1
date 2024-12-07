@@ -36,7 +36,10 @@ function SSOVerifySection() {
             // console.log('response :',response);
             if(response&&'message' in response&&response.message==='New access token generated successfully.')
             {
-                console.log(response);
+                if(localStorage.getItem('ref'))
+                    {
+                        localStorage.removeItem('ref');
+                    }
                 
                 if(response&&'mobile_verified' in response&&!response.mobile_verified)
                 {

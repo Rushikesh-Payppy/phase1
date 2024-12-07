@@ -205,9 +205,9 @@ function SoftLaunchOtpInputs({name,lastname,accessToken,phone_number,setUserInfo
     return(
         <>
         {/* <section className={"flex justify-center h-screen w-full background-custom-grey100  overflow-hidden "+plus_jakarta_sans.className}> */}
-            <div className="page-center-parent-container overflow-hidden small-border custom-border-grey600 relative">
-                        <Image src={Arrow} width={36} height={36} alt='img' quality={100} className='cursor-pointer absolute top-6 left-6' onClick={()=>{handleBackBtn(true)}}/>
-                <div className="flex flex-col px-6 pt-24 pb-10 background-custom-grey50 gap-8 h-screen ">
+            <div className="page-center-parent-container overflow-hidden small-border custom-border-grey600 p-6 relative">
+                        <Image src={Arrow} width={36} height={36} alt='img' quality={100} className='cursor-pointer ' onClick={()=>{handleBackBtn(true)}}/>
+                <div className="flex flex-col  pt-24 pb-10 background-custom-grey50 gap-8 h-screen ">
                     <div className="flex flex-col gap-10 ">
                         <div className="flex flex-col gap-8">
                             <div className="flex flex-col gap-2">

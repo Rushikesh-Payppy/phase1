@@ -201,11 +201,11 @@ function UserInfoSection()
             {/* </section>} */}
             {userInfoView===1&&
             // <section className={"flex justify-center  background-custom-grey50  h-screen  overflow-hidden "+plus_jakarta_sans.className}>
-                <div className="page-center-parent-container background-custom-grey50 border-black overflow-hidden px-6 py-24 small-border border-custom-grey800 relative">
-                    <div className="flex flex-col gap-10 ">
-                        <Image src={Arrow} width={32} height={32} alt='img' quality={100} className='cursor-pointer absolute left-6 top-8' onClick={handleBackButtonClick}/>
+                <div className="page-center-parent-container background-custom-grey50 border-black overflow-hidden p-6  small-border border-custom-grey800 relative">
+
+                        <Image src={Arrow} width={32} height={32} alt='img' quality={100} className='cursor-pointer' onClick={handleBackButtonClick}/>
                             
-                            <div className="flex flex-col gap-6 items-center">
+                            <div className="flex flex-col gap-6 items-center py-24">
                             
                                 <div className="flex flex-col items-center gap-5">
                                     <Image src={Badge} width={200} height={200} alt='img' quality={100} className='  cursor-pointer'/>          
@@ -217,17 +217,16 @@ function UserInfoSection()
                                 <button className={`py-4 px-7 w-full background-custom-grey900 shadow-sm custom-text-white all-caps-12`}  onClick={handleBadgeViewProceed}>Proceed</button>
 
                             </div>
-                    </div>
 
                 </div>}
             {/* </section>} */}
             {userInfoView===2&&
             // <section className={"flex justify-center  background-custom-grey50  h-screen overflow-hidden "+plus_jakarta_sans.className}>
-                <div className="page-center-parent-container background-custom-grey50 border-black  overflow-hidden px-6 py-24 small-border border-custom-grey800 relative">
-                    <div className="flex flex-col gap-10 ">
-                        {/* <Image src={Arrow} width={32} height={32} alt='img' quality={100} className='cursor-pointer' onClick={handleBackButtonClick}/> */}
+                <div className="page-center-parent-container background-custom-grey50 border-black  overflow-hidden p-6  small-border border-custom-grey800 relative">
 
-                        <div className="flex flex-col gap-8">
+                        <Image src={Arrow} width={32} height={32} alt='img' quality={100} className='cursor-pointer' onClick={handleBackButtonClick}/>
+
+                        <div className="flex flex-col gap-8 py-24">
                             <div className="flex flex-col gap-2">
                                 <h2 className="heading-h2 custom-text-grey900 ">Verify your phone number</h2>
                                 <div className="body-sm custom-text-grey700">We secure your account, not spam it</div>
@@ -244,7 +243,7 @@ function UserInfoSection()
                             </div>
 
                         </div>
-                    </div>
+
 
                 </div>}
              {/* </section>} */}

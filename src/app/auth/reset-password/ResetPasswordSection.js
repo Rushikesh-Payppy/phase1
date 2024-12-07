@@ -47,7 +47,7 @@ function ResetPasswordSection()
     //when back button click
     function handleBackButtonClick()
     {
-        router.push('/auth/user-auth');
+        router.push('/');
     }
 
     function handleForgotPasswordProceed()

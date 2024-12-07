@@ -2,6 +2,7 @@ import localFont from "next/font/local";
 import '@/Styles/tailwindcss.css';
 import '@/Styles/Typography.css';
 
+
 //component
 import PWAInstallPrompt from "@/Components/PWAInstallPrompt";
 import { Plus_Jakarta_Sans } from "next/font/google";
@@ -56,16 +57,18 @@ const plus_jakarta_sans = Plus_Jakarta_Sans({
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-    <head>
-      <link rel="manifest" href="/manifest.json" />
-      <link rel="icon" href="/icons/icon-512.png"/>
-      <link rel="apple-touch-icon" href="/icons/icon-512.png"/>
-    </head>
-      <body className={" "+plus_jakarta_sans.className}>
-        {children}
-        {/* <PWAInstallPrompt/> */}
-      </body>
-    </html>
+
+      <html lang="en">
+      <head>
+        <link rel="manifest" href="/manifest.json" />
+        <link rel="icon" href="/icons/icon-512.png"/>
+        <link rel="apple-touch-icon" href="/icons/icon-512.png"/>
+      </head>
+        <body className={" "+plus_jakarta_sans.className}>
+          {children}
+          {/* <PWAInstallPrompt/> */}
+        </body>
+      </html>
+
   );
 }

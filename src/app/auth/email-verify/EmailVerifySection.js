@@ -42,7 +42,7 @@ function EmailVerifySection() {
 
     function goBackToSignUp()
     {
-        router.push('/auth/user-auth');
+        router.push('/');
     }
     return(
         <>
