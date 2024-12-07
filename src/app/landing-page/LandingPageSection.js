@@ -93,7 +93,7 @@ function LandingPageSection()
         .then((response)=>{
 
             if (response && 'message' in response && response.message === 'Refresh token is missing!') {
-                window.location.href = '/auth/user-auth';
+                // window.location.href = '/auth/user-auth';
             }
             if ('access_token' in response) {
                 setAccessToken(response.access_token);
@@ -140,7 +140,9 @@ function LandingPageSection()
 
 
                         <div className=" h-[440px]  flex flex-col justify-between items-center  relative w-full overflow-hidden " >
-                            <Image src={Logout} width={20} height={20} alt="" quality={100} className=" absolute z-[1] top-5 right-5 cursor-pointer" onClick={handleLogOut} />
+                           <button className="absolute top-5 right-5  z-[2] cursor-pointer" onClick={handleLogOut}>
+                           <    Image src={Logout} width={20} height={20} alt="" quality={100} className=" "  />
+                            </button> 
                             <Image src={Hero} width={390} height={440} alt="" quality={100} className="w-full  object-cover " />
                             <div className="bg-landingpage-gradient absolute top-0 left-0  w-full h-full "></div>
                             <div className="flex flex-col h-full absolute justify-between items-center z-[1] px-10   py-10 ">

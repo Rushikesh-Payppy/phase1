@@ -8,7 +8,7 @@ function AddToCartApi(payload,cartId)
             method:'POST',
             headers:{
                 'Content-Type':'application/json',
-                "x-publishable-api-key": "pk_bf713f1adcc6ed35b4881cb9eb1cfb448f057b0fee771da4eeadf6eb0aafb740"
+                "x-publishable-api-key": "pk_309836f348011413862e21d0b67c72883a0e149876e5ddcd38db238785c8a9fb"
             },
             body:JSON.stringify(payload)
         }
