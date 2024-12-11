@@ -1,24 +1,15 @@
 'use client';
-import { Plus_Jakarta_Sans } from 'next/font/google';
 import Image from 'next/image';
-import Link from 'next/link';
 
 import Arrow from '@/Images/Otp/arrow-icon.svg';
 import { useEffect, useRef, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import RegistrationOtpVerification from '@/apis/RegistrationOtpVerification';
-import ResendOtp from '@/apis/ResendOtp';
 import VerifyOtpApi from '@/apis/auth/VerifyOtpApi';
 import SentOtpApi from '@/apis/auth/SentOtpApi';
 
 
-const plus_jakarta_sans=Plus_Jakarta_Sans({
-    subsets:['latin'],
-    display:'swap'
-})
-    
 
-function SoftLaunchOtpInputs({name,lastname,accessToken,phone_number,setUserInfoView,sessionId})
+function SoftLaunchOtpInputs({accessToken,phone_number,setOtpVerificationStep,sessionId})
 {
 
     let router=useRouter();
@@ -105,7 +96,7 @@ function SoftLaunchOtpInputs({name,lastname,accessToken,phone_number,setUserInfo
             }
     
     }
-
+    //if we pass the true to this function as parameter then enter mobile number will get opened otherwise it will remove entered otp
     function handleBackBtn(backBtnpressed=false)
     {
          // Reset all OTP input fields
@@ -121,7 +112,7 @@ function SoftLaunchOtpInputs({name,lastname,accessToken,phone_number,setUserInfo
         if(backBtnpressed)
         {
             //set the previous view
-            setUserInfoView(2);
+            setOtpVerificationStep(0);
         }
     }
 
@@ -131,8 +122,6 @@ function SoftLaunchOtpInputs({name,lastname,accessToken,phone_number,setUserInfo
         setInvalidOtp(false);
 
         let payloadObj={
-            "first_name":name,
-            "last_name":lastname,
             "phone":"+91"+phone_number,
             "session_uuid":payloadSessionId,
             "otp":getOtp()
@@ -143,7 +132,7 @@ function SoftLaunchOtpInputs({name,lastname,accessToken,phone_number,setUserInfo
             {
                 if(response.message==='Mobile number verified successfully.')
                 {
-                    router.push('/landing-page');
+                    router.push('/store/home');
                 }
                 if(response.message==='session validation failed' || response.message==='session_uuid is not valid')
                 {
@@ -205,9 +194,9 @@ function SoftLaunchOtpInputs({name,lastname,accessToken,phone_number,setUserInfo
     return(
         <>
         {/* <section className={"flex justify-center h-screen w-full background-custom-grey100  overflow-hidden "+plus_jakarta_sans.className}> */}
-            <div className="page-center-parent-container overflow-hidden small-border custom-border-grey600 p-6 relative">
+            <div className="page-center-parent-container  small-border background-custom-grey50 p-6 h-screen relative">
                         <Image src={Arrow} width={36} height={36} alt='img' quality={100} className='cursor-pointer ' onClick={()=>{handleBackBtn(true)}}/>
-                <div className="flex flex-col  pt-24 pb-10 background-custom-grey50 gap-8 h-screen ">
+                <div className="flex flex-col  pt-24 pb-10  gap-8  ">
                     <div className="flex flex-col gap-10 ">
                         <div className="flex flex-col gap-8">
                             <div className="flex flex-col gap-2">

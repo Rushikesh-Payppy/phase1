@@ -1,29 +1,57 @@
+'use client';
+import React from "react";
+import Link from "next/link";
+import Image from "next/image";
 
-import Image from 'next/image';
-import Link from 'next/link';
+//icons
+import HomeLight from "@/Images/Icons/home-icon-light.svg";
+import HomeDark from "@/Images/Icons/home-icon-dark.svg";
+import FlixLight from "@/Images/Icons/flix-icon-light.svg";
+import FlixDark from "@/Images/Icons/flix-icon-dark.svg";
+// import BillLight from "@/Images/Icons/bill-icon-light.svg";
+// import BillDark from "@/Images/Icons/bill-icon-dark.svg";
+import BagLight from "@/Images/Icons/bag-icon-light.svg";
+import BagDark from "@/Images/Icons/bag-icon-dark.svg";
+import AccountLight from "@/Images/Icons/account-icon-light.svg";
+import AccountDark from "@/Images/Icons/account-icon-dark.svg";
+import SearchLight from "@/Images/Icons/search-menu-icon-light.svg";
+import SearcgDark from "@/Images/Icons/search-menu-icon-dark.svg";
 
-//images
-import Arrow from '@/Images/Store/footer-arrow.svg';
-import Search from '@/Images/Store/footer-search.svg';
-import Shop from '@/Images/Store/footer-shop.svg';
 
 
-function StoreFooter()
-{
-    return(
-        <>
-        <footer className="flex items-center justify-between py-2.5 px-4 sticky bottom-0 left-0 background-custom-grey100 w-full small-border custom-border-grey800">
-            <div className="flex justify-center relative w-full">
-                <Image src={Arrow} width={20} height={20} alt='img' quality={100} className='absolute left-0' />
-                <div className="flex items-center gap-12">
-                    <Image src={Search} width={20} height={20} alt='img' quality={100} className='' />
-                    <div className="custom-text-grey800 text-[10px] leading-3">MENU</div>
-                    <Image src={Shop} width={20} height={20} alt='img' quality={100} className='' />
-                </div>
-            </div>
-        </footer>
-        </>
-    )
-}
+const StoreFooter = () => {
+
+  return (
+    <footer className="sticky bg-store-footer-gradient h-[88px] z-[2]  bottom-0 flex justify-center items-center ">
+      <div className="flex items-center max-w-64 w-full gap-6 py-3 px-5 small-border border-black rounded-full background-white background-custom-white ">
+        <Link href="#">
+          <Image src={HomeLight} width={24} height={24} alt="img" quality={100} />
+          {/* <Image src={HomeDark} width={24} height={24} alt="img" quality={100} /> */}
+        </Link>
+
+        <Link href="#">
+          <Image src={FlixLight} width={24} height={24} alt="img" quality={100} />
+          {/* <Image src={FlixDark} width={24} height={24} alt="img" quality={100} /> */}
+        </Link>
+
+        <Link href="#">
+          <Image src={SearchLight} width={24} height={24} alt="img" quality={100} />
+          {/* <Image src={SearcgDark} width={24} height={24} alt="img" quality={100} /> */}
+        </Link>
+
+        <Link href="#">
+          <Image src={BagLight} width={24} height={24} alt="img" quality={100} />
+          {/* <Image src={BagDark} width={24} height={24} alt="img" quality={100} /> */}
+        </Link>
+
+        <Link href="#">
+          <Image src={AccountLight} width={24} height={24} alt="img" quality={100} />
+          {/* <Image src={AccountDark} width={24} height={24} alt="img" quality={100} /> */}
+        </Link>
+      </div>
+
+    </footer>
+  );
+};
 
 export default StoreFooter;

@@ -26,6 +26,8 @@ import chevronLeftBlack from '@/Images/flix/chevron-left-black.svg'
 
 //components
 import { getImgUrl } from "@/Components/FlixBlogContent";
+import IntialLoadingAnimation from "@/Components/InitialPageLoadingAnimation";
+
 
 function Blog({ id }) {
   let router = useRouter();
@@ -65,9 +67,7 @@ function Blog({ id }) {
 
   return (
     <>
-      {response.length == 0 ? (
-        <h1 className="heading-h1 text-center">Loading...</h1>
-      ) : (
+      {response.length == 0 ? <IntialLoadingAnimation/> : (
         <>
           <article className=" relative flix-blog-parent-container ">
             <main className="flix-blog-main-container ">

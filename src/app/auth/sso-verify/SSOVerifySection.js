@@ -1,6 +1,6 @@
 'use client';
 import { Plus_Jakarta_Sans } from "next/font/google";
-import { useRouter, useSearchParams } from "next/navigation";
+import {  useSearchParams } from "next/navigation";
 import { useEffect } from "react";
 import LoadingAnimation from "../LoadingAnimation";
 
@@ -15,7 +15,7 @@ const plus_jakarta_sans=Plus_Jakarta_Sans({
 function SSOVerifySection() {
     let searchParams=useSearchParams();
     let accessToken=searchParams.get('url');
-    let refferalCode=localStorage.getItem('ref');
+    let refferalCode=sessionStorage.getItem('ref');
     let obj={
         'referral_code':refferalCode
     }
@@ -36,15 +36,21 @@ function SSOVerifySection() {
             // console.log('response :',response);
             if(response&&'message' in response&&response.message==='New access token generated successfully.')
             {
-                if(localStorage.getItem('ref'))
+                if(sessionStorage.getItem('ref'))
                     {
-                        localStorage.removeItem('ref');
+                        sessionStorage.removeItem('ref');
                     }
                 
                 if(response&&'mobile_verified' in response&&!response.mobile_verified)
                 {
-                    window.location.href='/store/user-info';
+                    window.location.href='/auth/mobile-verification';
                 }
+                 if(response&&'mobile_verified' in response&&!response.mobile_verified)
+                {
+                    window.location.href='/auth/user-information';
+                }
+                // "userdetails": false
+
                 else{
                     window.location.href='/landing-page';
                     

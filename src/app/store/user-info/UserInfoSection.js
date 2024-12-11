@@ -2,7 +2,6 @@
 
 import Arrow from '@/Images/Otp/arrow-icon.svg';
 import SanitizeInputs from '@/SanitizingInputs/SanitizeInputs';
-import { Plus_Jakarta_Sans } from 'next/font/google';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
@@ -15,10 +14,7 @@ import GetAccessTokenAPI from '@/apis/auth/GetAccessToken';
 import IntialLoadingAnimation from '@/Components/InitialPageLoadingAnimation';
 import LoadingAnimation from '@/app/auth/LoadingAnimation';
 
-const plus_jakarta_sans=Plus_Jakarta_Sans({
-    subsets:['latin'],
-    display:'swap'
-})
+
 function UserInfoSection()
 {
     
@@ -158,7 +154,9 @@ function UserInfoSection()
              
          })
          .catch((error)=>{
- 
+            console.log(error);
+            
+            
          })
          .finally()
          {

@@ -52,7 +52,8 @@ module.exports = {
   			}
   		},
   		backgroundImage: {
-  			'landingpage-gradient': 'linear-gradient(180deg, rgba(26, 25, 23, 0) 0%, rgba(26, 25, 23, 0.7) 99.5%)'
+  			'landingpage-gradient': 'linear-gradient(180deg, rgba(26, 25, 23, 0) 0%, rgba(26, 25, 23, 0.7) 99.5%)',
+			'store-footer-gradient':'linear-gradient(180deg, rgba(253, 251, 248, 0) 0%, #FDFBF8 100%)',
   		},
   		borderRadius: {
   			lg: 'var(--radius)',

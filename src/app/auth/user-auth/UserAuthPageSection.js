@@ -2,17 +2,12 @@
 
 //to avoid generate asa static page
 export const dynamic='force-dynamic';
-import { Plus_Jakarta_Sans } from 'next/font/google';
 
 import Image from 'next/image';
-//import 
-import Logo from '@/Images/UserAuth/payppy-logo.svg';
-import Insta from '@/Images/UserAuth/insta.svg';
-import Twit from '@/Images/UserAuth/twit.svg';
+
 import Link from 'next/link';
 
 import Google from '@/Images/UserAuth/google-icon.svg';
-import Mail from '@/Images/UserAuth/mail.svg';
 import { useEffect, useRef, useState } from 'react';
 import PasswordValidationBoxes, { verifyPasswordIsMatchingToCriteriaWhileTyping } from '@/Components/PasswordValidation';
 import SanitizeInputs from '@/SanitizingInputs/SanitizeInputs';
@@ -27,10 +22,6 @@ import GetAccessTokenAPI from '@/apis/auth/GetAccessToken';
 
 
 
-const plus_jakarta_sans = Plus_Jakarta_Sans({
-    subsets: ['latin'],
-    display: 'swap'
-})
 function UserAuthPageSection() {
 
     //storing values in state
@@ -42,8 +33,6 @@ function UserAuthPageSection() {
     let[invalidPassword,setInvalidPassword]=useState(true);
 
     //to open modal and continue with email view 
-    let[showAuthView,setShowAuthView]=useState(false);
-    let[emailInputsVisibility,setEmailInputVisibility]=useState(false);
 
     let[registerSteps,setRegisterSteps]=useState(0);
 
@@ -59,10 +48,10 @@ function UserAuthPageSection() {
 
     let[loadingAnimation,setLoadingAnimation]=useState(false);
 
-    let[accessToken,setAccessToken]=useState('');
+    // let[accessToken,setAccessToken]=useState('');
 
 
-    let authInputContainer=useRef();
+
     let emailfield=useRef();
 
     let paramsValue=useSearchParams();
@@ -70,28 +59,6 @@ function UserAuthPageSection() {
     let router=useRouter();
 
 
-      useEffect(()=>{
-        function outsideClick(e)
-        {
-            if(showAuthView&&authInputContainer.current&&!authInputContainer.current.contains(e.target))
-            {
-                setShowAuthView(false);
-            }
-        }
-
-        if(emailInputsVisibility&&showAuthView)
-        {
-            setTimeout(()=>{
-                emailfield.current.focus();
-            },700)
-        }
-        document.addEventListener('click',outsideClick);
-
-       
-        return()=>  {
-            document.removeEventListener('click',outsideClick);
-        }
-      },[showAuthView,emailInputsVisibility])
 
 
       //checking email is valid or not with regx
@@ -115,7 +82,7 @@ function UserAuthPageSection() {
         let referrelId=paramsValue?.get('referral_code');
         if(referrelId)
         {
-            localStorage.setItem('ref',referrelId);
+            sessionStorage.setItem('ref',referrelId);
         }
         let islogin=paramsValue?.get('auth');
         setSignInView(islogin==='login');
@@ -148,18 +115,8 @@ function UserAuthPageSection() {
         setPassword(sanitizedValue);
       }
 
-      function handleBecomeAMember(e)
-      {
-        e.stopPropagation();
-        setShowAuthView(true);
-      }
-
-      //to show sign up with email input fields
-      function handleMailBtn(e)
-      {
-        e.stopPropagation();
-        setEmailInputVisibility(true);
-    }
+     
+    
     
     //proceed button for sign up click
     function handleProceedForSignUp()
@@ -169,7 +126,7 @@ function UserAuthPageSection() {
         {
             return;
         }
-        let refferalCode=localStorage.getItem('ref');
+        let refferalCode=sessionStorage.getItem('ref');
         let obj={
             'login_value':email,
             'password':password,
@@ -189,9 +146,9 @@ function UserAuthPageSection() {
 
                 if(response.message==='Mail send successfully!')
                 {
-                    if(localStorage.getItem('ref'))
+                    if(sessionStorage.getItem('ref'))
                     {
-                        localStorage.removeItem('ref');
+                        sessionStorage.removeItem('ref');
                     }
 
                     setRegisterSteps(1);
@@ -248,10 +205,20 @@ function UserAuthPageSection() {
                     {
                         setInvalidCredentials(true);
                     }
-                    //if user login intially or never veriefied his mobile number
+                    // if user login intially or never veriefied his mobile number
                     if('data' in response&&'mobile_verified' in response.data&&!response.data.mobile_verified)
                     {
-                            window.location.href='/store/user-info';
+                        console.log('mobile verified :',response.data.mobile_verified);
+
+                        window.location.href='/auth/mobile-verification';
+                        
+                    }
+                    else if('data' in response&&'userdetails' in response.data&&!response.data.userdetails)
+                    {
+                        console.log('userdetails :',response.data.userdetails);
+
+                        window.location.href='/auth/user-information';
+
                     }
                     if('message' in response&&response.message==='Logged in successfully.')
                     {
@@ -306,13 +273,7 @@ function UserAuthPageSection() {
     }
 
 
-    //if someone click the default showed login button
-    function handleLogInAboveButton()
-    {
-        setEmailInputVisibility(true);
-        router.push('/?auth=login');
-        
-    }
+
 
      //getting access token
      function getAccessToken()
@@ -321,7 +282,7 @@ function UserAuthPageSection() {
          .then((response)=>{
              if(response&&'access_token' in response)
              {
-                router.push('/landing-page');
+                router.push('/store/home');
              }
              
              // if(response&&'message' in response&&response.message==='Refresh token is missing')
@@ -330,52 +291,19 @@ function UserAuthPageSection() {
              // }
          })
          .catch((error)=>{
- 
+            console.log(error);
+            
          })
      }
     return (
         <>
            {registerSteps===0&&
         //    <section className={"flex justify-center min-h-screen w-full background-custom-grey50    " + plus_jakarta_sans.className}>
-                <div className="page-center-parent-container overflow-hidden  small-border custom-border-grey600 overflow-y-hidden overflow-scrollbar-hidden flex flex-col justify-end pb-14 px-6 bg-black relative">
-                    <video className= 'object-cover h-full w-full -z-1 absolute top-0 left-0' autoPlay loop muted playsInline >
-                    <source src="/landingpage-video.mp4" type="video/mp4" />
-                    </video>
-                    <div className={`w-full h-full bg-black absolute top-0 left-0 ${showAuthView?' opacity-70 z-[1] ':' opacity-40 '} `}></div>
-              
-                    <div className="flex flex-col items-center gap-12 absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] w-full">
-                        <div className="flex flex-col gap-5 items-center">
-                            <Image src={Logo} width={198} height={32} alt='img' quality={100} className=' h-auto' />
-                            <div className={"body-bold custom-text-white text-center  "+plus_jakarta_sans.className}>You've landed on the cool side of the world</div>
-                        </div>
-                        <button className="all-caps-12-bold background-custom-green py-4 px-7 custom-text-grey900 max-w-xs w-full " onClick={handleBecomeAMember}>Enter Payppy</button>
-                      
-                        <div className="flex flex-col  items-center z-[1] gap-5">
-                                <div className="flex items-center gap-5">
-                                    <a href="https://x.com/payppy_app?s=21" target="_blank" rel="noopener noreferrer">
-                                            <Image src={Twit} width={16} height={16} alt='img' quality={100} className='' />
-                                    </a> 
-                                    <a href="https://www.instagram.com/payppy.app/" target="_blank" rel="noopener noreferrer">
-                                            <Image src={Insta} width={16} height={16} alt='img' quality={100} className='' />
-                                    </a> 
-                                </div>
-                                <div className="flex items-center gap-5">
-                                    <Link href='/shipping-return-refund' className='all-caps-10 custom-text-white'>ShippinG</Link>
-                                    <Link href='/terms-of-use' className='all-caps-10 custom-text-white'>terms</Link>
-                                    <Link href='/cookies-policy' className='all-caps-10 custom-text-white'>cookies</Link>
-                                    <Link href='/privacy-policy' className='all-caps-10 custom-text-white'>privacy</Link>
-                                </div>
-                            </div> 
-                    </div>
-
-
-                  
-
-                    {/* bottom modal       if someones mobile height is small and he opened the email inputs then overflow will gets scrolled  */}
-                    <div className={`w-full ${emailInputsVisibility?'max-h-screen overflow-y-scroll':''} flex flex-col gap-8 pt-2 px-6 pb-10 background-custom-grey50 fixed lg:absolute left-0 duration-500 ${showAuthView ? ' bottom-0 z-[2]  ' : ' -bottom-[100%] z-0 '}`} ref={authInputContainer}>
-                        <div className="flex justify-center items-center">
+                <div className="page-center-parent-container        ">
+                    <div className={`w-full flex flex-col gap-8 px-6 pb-10 pt-14 background-custom-grey50 min-h-screen mt-auto duration-500 small-border border-black `} >
+                        {/* <div className="flex justify-center items-center">
                             <div className="w-12 h-0.5 background-custom-grey400"></div>
-                        </div>
+                        </div> */}
                         <div className="flex flex-col gap-2 items-center">
                             <h2 className="heading-h2 text-center custom-text-grey900">Welcome {signInView?'back':'to Payppy'}</h2>
                             <div className="body font-normal custom-text-grey700 text-center">{signInView?'Missed the Payppy vibes? We missed you, too!':'Sign up to our exclusive waitlist get a chance to access our next drop, first!'}</div>
@@ -388,31 +316,19 @@ function UserAuthPageSection() {
                                     <div className="all-caps-12-bold text-center custom-text-grey900 uppercase">Continue with Google</div>
                                     <div></div>
                                 </div>
-                                {!emailInputsVisibility && <div className="flex justify-center relative background-custom-white items-center gap-2 py-4 px-5 border-[0.5px] custom-border-grey800 rounded-sm cursor-pointer duration-300 hover:bg-[#F3F1ED] " onClick={handleMailBtn}>
-                                    <Image src={Mail} width={20} height={20} alt='img' quality={100} className='absolute top-[50%] translate-y-[-50%] left-4'/>
-                                    <div className="all-caps-12-bold text-center custom-text-grey900 uppercase">Continue with Email</div>
-                                    <div></div>
-                                </div>}
+                              
                             </div>
 
-                            {<div className={`flex flex-col gap-6 duration-500 ${emailInputsVisibility ? ' max-h-[1100px] h-auto' : 'max-h-0 h-0 '}`}>
+                            {<div className={`flex flex-col gap-6 duration-500 `}>
                                 
                                 <div className="flex gap-2 items-center justify-center ">
-                                {/* <p className='body custom-text-grey700 '>Already a member? </p>
-                                <button className='custom-text-grey900 underline body-bold'>Log in</button> */}
-                                  <> 
-                                   {!emailInputsVisibility? 
-                                   <div className="flex gap-2 justify-center pb-10">
-                                        <div className="custom-text-grey700 body">Already a member? </div>
-                                        <button className='body-bold custom-text-grey800 underline pb-2.5' onClick={handleLogInAboveButton}>Log in</button>
-                                    </div>
-                                       : 
-                                       <>
+                               
+
                                         <div className="small-border border-[#D7D4CF] grow"></div>
                                         <div className="custom-text-grey900 body">or</div>
                                         <div className="small-border border-[#D7D4CF] grow"></div>
-                                        </>}
-                                    </>
+
+
                                 </div>
 
                                 <div className="flex flex-col gap-1.5">
@@ -444,11 +360,11 @@ function UserAuthPageSection() {
 
                                {signInView ? <div className="flex gap-2 justify-center ">
                                                 <div className="custom-text-grey700 body"> Not a Member?  </div>
-                                                <Link href='/' className='body-bold custom-text-grey800 underline pb-2.5'>Sign Up</Link>
+                                                <Link href='/auth/user-auth' className='body-bold custom-text-grey800 underline pb-2.5'>Sign Up</Link>
                                             </div>
                                         :  <div className="flex gap-2 justify-center ">
                                                 <div className="custom-text-grey700 body">Already a member? </div>
-                                                <Link href='/?auth=login' className='body-bold custom-text-grey800 underline pb-2.5'>Log in</Link>
+                                                <Link href='/auth/user-auth?auth=login' className='body-bold custom-text-grey800 underline pb-2.5'>Log in</Link>
                                             </div>}
                             </div>}
                         </div>

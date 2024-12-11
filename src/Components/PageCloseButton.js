@@ -1,6 +1,5 @@
 'use client';
 import React from "react";
-import Link from "next/link";
 import Image from "next/image";
 
 
@@ -16,7 +15,7 @@ const PageCloseButton = () => {
     router.back();
   }
   return (
-    <div className=" w-full gap-[71px] pl-4 py-3 background-custom-grey50">
+    <div className=" w-full gap-[71px] pl-4 py-3 ">
       <button onClick={handleCloseButtonClick}>
         <Image src={closeIcon} width={24} height={24} alt="img" quality={100} />
       </button>

@@ -1,10 +1,11 @@
-import Page from "./auth/user-auth/page";
+import Page from "./store/home/page";
+
 
 export default function Home() {
 
   return (
     <>
-      <Page/>
+    <Page/>
 
     </>
   );

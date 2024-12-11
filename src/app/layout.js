@@ -1,10 +1,8 @@
-import localFont from "next/font/local";
 import '@/Styles/tailwindcss.css';
 import '@/Styles/Typography.css';
 
 
 //component
-import PWAInstallPrompt from "@/Components/PWAInstallPrompt";
 import { Plus_Jakarta_Sans } from "next/font/google";
 
 
